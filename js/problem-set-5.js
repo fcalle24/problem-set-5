@@ -26,7 +26,8 @@ function mario() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 1 CODE HERE
+  var op1 = document.getElementById("output1");
+  height = prompt('Please enter a height within the range of of 1-23.');
 
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
