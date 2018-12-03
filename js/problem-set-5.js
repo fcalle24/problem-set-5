@@ -26,12 +26,36 @@ function mario() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  var op1 = document.getElementById("output1");
+  var op1 = document.getElementById("mario-easy");
+  do {
   height = prompt('Please enter a height within the range of of 1-23.');
+  let checky = 1
 
-  while (height <= 23) {
-    height = prompt("Please re-enter height value.");
+if (height < 1){
+  checky = false;
+} else if (height > 23){
+  checky == false;
+} else {
+  checky = true;
+}
+} while (checky = false);
+
+let width = (height + 1);
+
+for (var i = 1; i <= height; i++){
+var row = '';
+}
+
+for (var j = 1; j <= (height - i); j++) {
+    row += ' ';
   }
+
+for (var k = 1; k <= i; k++) {
+    row += '*';
+  }
+
+
+
 
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
@@ -158,7 +182,38 @@ function credit() {
 
 function guess() {
 
-  // WRITE YOUR EXERCISE 4 CODE HERE
+  guess = prompt("I'm thinking of a number between 1 and 1000, what is it?");
+  guess = parseInt(guess);
+  let randomNumber = Math.floor((Math.random() * 1000) + 1);
+  let guessCount = 0;
+  var guessedCorrectly = false;
+
+  do {
+    if(guess > 1000 && guess === false){
+      prompt("Please enter an integer in the range of 1 and 1000.");
+  } while (guess === false)
+
+  while (guessedCorrectly === false && guess > 1000);
+  if(guess > randomNumber) {
+      var guessLess = prompt("That's too high, choose a lower number.");
+      if (guessLess === randomNumber){
+        alert("You guessed the number!");
+        guessedCorrectly = true;
+      }
+
+}
+      else if (guess < randomNumber) {
+    var guessMore = prompt("That's too low, choose a larger number.");
+    if (guessMore === randomNumber) {
+      alert("You guessed the number!");
+      guessedCorrectly = true;
+    }
+  }
+
+
+  var op4 = document.getElementById("guess-output");
+  op4.innerHTML = ("You guessed " + guessCount + " time(s) and you guessed the correct number " + randomNumber);
+
 
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
