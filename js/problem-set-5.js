@@ -188,11 +188,6 @@ function guess() {
   let guessCount = 0;
   var guessedCorrectly = false;
 
-  do {
-    if(guess > 1000 && guess === false){
-      prompt("Please enter an integer in the range of 1 and 1000.");
-  } while (guess === false)
-
   while (guessedCorrectly === false && guess > 1000);
   if(guess > randomNumber) {
       var guessLess = prompt("That's too high, choose a lower number.");
@@ -249,7 +244,28 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
+windspeed = prompt("Please enter a windspeed.")
+var op5 = document.getElementById("hurricane-output");
 
+
+
+if(windspeed <= 38){
+  windspeed = ("The skies are calm.")
+} else if (windspeed >= 39 && windspeed <= 73){
+  windspeed = ("This is a Tropical Storm.");
+} else if (windspeed >= 74 && windspeed <= 95){
+  windspeed = ("This is a Category 1 hurricane.");
+} else if (windspeed >= 96 && windspeed <= 110){
+  windspeed = ("This is a Category 2 hurricane.");
+} else if (windspeed >= 111 && windspeed <= 129){
+  windspeed = ("This is a Category 3 hurricane.");
+} else if (windspeed >= 130 && windspeed <= 156){
+  windspeed = ("This is a Category 4 hurricane.");
+} else if (windspeed >= 157) {
+  windspeed = ("This a Category 5 hurricane.");
+}
+
+op5.innerHTML = (windspeed)
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
   ///////////////////////////////// DO NOT MODIFY
