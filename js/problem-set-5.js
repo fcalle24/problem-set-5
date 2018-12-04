@@ -166,7 +166,13 @@ function credit() {
   let card; // DO NOT MODIFY
   //////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 3 CODE HERE
+  let firstTotal = 0;
+  let secondTotal = 0;
+  while (true){
+    card = prompt("Please enter your credit card number: ");
+    if (Number.isInteger(Number(card))){
+      break;
+    }
 
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
