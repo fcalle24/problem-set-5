@@ -205,32 +205,34 @@ function credit() {
 
 function guess() {
 
-  guess = prompt("I'm thinking of a number between 1 and 1000, what is it?");
-  guess = parseInt(guess);
-  let randomNumber = Math.floor((Math.random() * 1000) + 1);
-  let guessCount = 0;
-  var guessedCorrectly = false;
+  let answer = Math.floor(Math.random() * (999)) + 1;
+       let value;
+       let guessCount = 0;
 
-  while (guessedCorrectly === false && guess > 1000);
-  if(guess > randomNumber) {
-      var guessLess = prompt("That's too high, choose a lower number.");
-      if (guessLess === randomNumber){
-        alert("You guessed the number!");
-        guessedCorrectly = true;
-      }
+     do {
+       guess = prompt("I'm thinking of an interger between 1 and 1000, what is it?");
+       guess = parseFloat(guess);
 
-}
-      else if (guess < randomNumber) {
-    var guessMore = prompt("That's too low, choose a larger number.");
-    if (guessMore === randomNumber) {
-      alert("You guessed the number!");
-      guessedCorrectly = true;
-    }
-  }
+       if  (isNaN(guess) || guess < 1 || guess > 1000 || Number.isInteger(guess) == false) {
+         document.getElementById("guess-output").innerHTML = 'Please enter an integer between 1 and 1000';
+         continue;
+       }
 
+       guessCount++;
 
-  var op4 = document.getElementById("guess-output");
-  op4.innerHTML = ("You guessed " + guessCount + " time(s) and you guessed the correct number " + randomNumber);
+       if (guess > answer){
+         alert("That's too high, choose a lower number.");
+         continue;
+       }
+
+       if (guess < answer) {
+         alert("That's too low, choose a higher number.");
+         continue;
+       }
+
+     } while (guess !== answer);
+
+     document.getElementById("guess-output").innerHTML = ('Good job, you guessed the number ' + answer + ' in '  + guessCount + ' tries!');
 
 
   ////////////////// DO NOT MODIFY
@@ -267,9 +269,19 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
-windspeed = prompt("Please enter a windspeed.")
+  windspeed = prompt("Please enter a positive interger for a windspeed.")
 var op5 = document.getElementById("hurricane-output");
+windspeed = parseInt(windspeed);
 
+while (windspeed < 0) {
+  windspeed = prompt('Please enter a positive integer for your windspeed');
+  windspeed = parseInt(windspeed);
+}
+
+while (Number.isInteger(windspeed) == false) {
+  windspeed = prompt('Please enter a positive integer for your windspeed');
+  windspeed = parseInt(windspeed);
+}
 
 
 if(windspeed <= 38){
@@ -318,6 +330,46 @@ function gymnastics() {
   let total = 0; //// DO NOT MODIFY
   let scores = []; // DO NOT MODIFY
   /////////////////// DO NOT MODIFY
+  do{
+    s1 = Number(prompt('Please enter a value between 0 and 10'));
+
+  } while (s1 < 0.0 || s1 > 10.0|| !Number.isInteger(s1));
+  scores.push(s1);
+
+  do{
+    s2 = Number(prompt('Please enter a value between 0 and 10'));
+
+  } while (s2 < 0.0 || s2 > 10.0|| !Number.isInteger(s2));
+  scores.push(s2);
+
+  do{
+    s3 = Number(prompt('Please enter a value between 0 and 10'));
+
+  } while (s3 < 0.0 || s3 > 10.0|| !Number.isInteger(s3));
+  scores.push(s3);
+
+  do{
+    s4 = Number(prompt('Please enter a value between 0 and 10'));
+
+  } while (s4 < 0.0 || s4 > 10.0|| !Number.isInteger(s4));
+  scores.push(s4);
+
+  do{
+    s5 = Number(prompt('Please enter a value between 0 and 10'));
+
+  } while (s5 < 0.0 || s5 > 10.0|| !Number.isInteger(s5));
+  scores.push(s5);
+
+  do{
+    s6 = Number(prompt('Please enter a value between 0 and 10'));
+
+  } while (s6 < 0.0 || s6 > 10.0|| !Number.isInteger(s6));
+  scores.push(s6);
+
+  let Total = Number(s1) + Number(s2) + Number(s3) + Number(s4) + Number(s5) + Number(s6);
+  let average = (Total - Math.max(s1, s2, s3, s4, s5, s6) - Math.min(s1, s2, s3, s4, s5, s6)) / 4;
+  var p = document.getElementById('gymnastics-output');
+  p.innerHTML = 'Discarded: ' + Math.min(s1, s2, s3, s4, s5, s6) + ', ' + Math.max(s1, s2, s3, s4, s5, s6) + '<br />Score: ' + average.toFixed(2);
 
   /*
    * NOTE: The 'total' variable should be representative of the sum of all
@@ -377,6 +429,49 @@ function reportCard() {
   let quizzes = 0; //// DO NOT MODIFY
   let homeworks = 0; // DO NOT MODIFY
   ///////////////////// DO NOT MODIFY
+let testscores;
+  do {
+    tscores = prompt("Enter Your Test Grades: ");
+    tscores = Number(tscores);
+    while ((tscores !== -1 && tscores < 0.0) || tscores > 100.0){
+      tscores = prompt("Please enter your test grades: ");
+      tscores = Number(tscores);
+    }
+    testTotal += tscores;
+    tests++;
+  }while(tscores !== -1)
+  let taverage = testTotal / tests;
+
+  let qscores
+  do {
+    qscores = prompt("Please enter your quiz grades: ");
+    qscores = Number(qscores);
+    while ((qscores !== -1 && qscores < 0.0) || qscores > 100.0){
+      qscores = prompt("Please enter your quiz grades: ");
+      qscores = Number(qscores);
+    }
+    quizTotal += qscores;
+    quizzes++;
+  }while(qscores !== -1)
+  let qaverage = quizTotal / quizzes;
+
+  let hscores
+  do {
+    hscores = prompt("Please enter your homework grades: ");
+    hscores = Number(hscores);
+    while ((hscores !== -1 && hscores < 0.0) || hscores > 100.0){
+      hscores = prompt("Please enter your homework grades: ");
+      hscores = Number(hscores);
+    }
+    homeworkTotal += hscores;
+    homeworks++;
+  }while(hscores !== -1)
+  let haverage = homeworkTotal / homeworks;
+
+  let grade = (taverage * 0.6) + (qaverage * 0.3) + (haverage * 0.1);
+
+  var r = document.getElementById("report-card-output");
+  r.innerHTML = "Tests: " + taverage.toFixed(2) + "<br/>" + "Quizzes: " + qaverage.toFixed(2) + "<br/>" + "Homework: " + haverage.toFixed(2) + "</br>" + "Grade: " + grade.toFixed(2);
 
   /*
    * NOTE: The 'tests', 'quizzes', and 'homeworks' variables should be
